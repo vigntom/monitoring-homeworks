@@ -26,6 +26,10 @@
 1. Подключите поднятый вами prometheus, как источник данных.
 1. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
 
+#
+![Datasource](./images/datasource.png)
+#
+
 ## Задание 2
 
 Изучите самостоятельно ресурсы:
@@ -43,15 +47,39 @@
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
+#
+  1. `100 - (avg by (instance, mode) (rate(node_cpu_seconds_total{job="nodeexporter",mode="idle"}[30s])) * 100)`
+  2. 
+      - CPULA 1: `node_load1{job="nodeexporter"}`
+      - CPULA 5: `node_load5{job="nodeexporter"}`
+      - CPULA15: `node_load15{job="nodeexporter"}`
+  3. 
+      - Free: `node_memory_MemFree_bytes{job="nodeexporter"}`
+      - Total: `node_memory_MemTotal_bytes{job="nodeexporter"}`
+  4.
+      - Free: `node_filesystem_free_bytes{job="nodeexporter",mountpoint="/"}`
+      - Total: `node_filesystem_size_bytes{job="nodeexporter",mountpoint="/"}`
+
+![Dashboard](./images/dashboard.png)
+#
 ## Задание 3
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
-1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
+1. В качестве решения задания приведите скриoншот вашей итоговой Dashboard.
+
+#
+![DashboardAndAlerts](./images/alerts.png)
+![TgMsg](./images/tg-alert.png)
+#
 
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
+
+#
+[dashboard.json](./dashboard.json)
+#
 
 ---
 
