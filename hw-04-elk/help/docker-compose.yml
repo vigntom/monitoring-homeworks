@@ -4,7 +4,6 @@
 ##kibana address: http://127.0.0.1:5601 будет доступно через ~1-2 мин
 #
 #
-version: '2.2'
 services:
 
   es-hot:
@@ -56,6 +55,8 @@ services:
       nofile:
         soft: 65536
         hard: 65536
+    ports:
+      - 9210:9200
     networks:
       - elastic
 
